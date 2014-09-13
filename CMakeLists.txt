@@ -9,6 +9,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 include_directories(
   ${CMAKE_SOURCE_DIR}
+  deps/list
 )
 
 add_executable(
@@ -16,6 +17,9 @@ add_executable(
   test.c
   promise.c
   promise.h
+  ./deps/list/list.c
+  ./deps/list/list_node.c
+  ./deps/list/list_iterator.c
 )
 
 add_library(
