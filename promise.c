@@ -16,7 +16,18 @@ promise_t *promise_new() {
 }
 
 int promise_destroy(promise_t *promise) {
+  list_iterator_t *it = list_iterator_new(promise->thens, LIST_HEAD);
+
+  list_node_t *node;
+  callback_t *p;
+
+  while ((node = list_iterator_next(it))) {
+    free(node->val);
+  }
+
   list_destroy(promise->thens);
+  list_iterator_destroy(it);
+
   free(promise);
   promise = 0;
   return 0;

@@ -24,5 +24,7 @@ int main() {
   promise_then(b, 0, b_resolve);
   assert(b_resolve_count == 2);
 
+  promise_destroy(b);
+
   return 0;
 }
